@@ -18,7 +18,7 @@
         @endif
         <div class="card border-0 shadow-sm mx-auto mt-5 rounded-0" style="width :35%;">
             <div class="card-header bg-success border-0 text-center text-white rounded-0">
-                <h4 class="fw-bold">Register To Countinue</h4>
+                <h4 class="fw-bold">Register Your Account</h4>
             </div>
             <form action="{{route('register.save')}}" method="post">
                 @csrf

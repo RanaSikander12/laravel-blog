@@ -16,29 +16,31 @@
         @if(Session::has('error'))
         <div class="alert alert-danger mt-3">{{Session::get('error')}}</div>
         @endif
-        @if(Session::has('success'))
-        <div class="alert alert-success mt-3">{{Session::get('success')}}</div>
-        @endif
         <div class="card border-0 shadow-sm mx-auto mt-5 rounded-0" style="width :35%;">
             <div class="card-header bg-success border-0 text-center text-white rounded-0">
-                <h4 class="fw-bold">Login To Countinue</h4>
+                <h4 class="fw-bold">Login to Countinue</h4>
             </div>
             <form action="{{route('login.check')}}" method="post">
                 @csrf
                 <div class="card-body">
-                    <label for="" class="mt-2 mb-2">Email Address</label>
-                    <input type="email" class="form-control" name="email">
-                    <label for="" class="mt-2 mb-2">Password</label>
-                    <input type="text" class="form-control" name="password">
+                    <label for="" class="mt-2 mb-2">Enter Your Email </label>
+                    <input type="text" class="form-control" name="email" value="{{old('email')}}">
+                    @error('email')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
+                    <label for="" class="mt-2 mb-2">Enter Password</label>
+                    <input type="text" class="form-control" name="password" value="{{old('password')}}">
+                    @error('password')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
                 </div>
-                <div class="card-footer bg-white">
+                <div class="card-footer">
                     <button class="btn btn-success text-white form-control">Login</button>
-                    <a href="{{route('register.index')}}" class="d-block pt-2 pb-2 float-end">create an account</a>
+                    <a href="{{route('register.index')}}" class="d-block pt-2 pb-2 float-end">Create an account</a>
                 </div>
             </form>
         </div>
     </div>
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

@@ -39,6 +39,7 @@ use Symfony\Component\HttpKernel\CacheWarmer\WarmableInterface;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\MergeExtensionConfigurationPass;
 
+
 // Help opcache.preload discover always-needed symbols
 class_exists(ConfigCache::class);
 
@@ -764,4 +765,5 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
 
         $this->__construct($this->environment, $this->debug);
     }
+
 }

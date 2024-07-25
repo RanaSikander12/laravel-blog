@@ -10,11 +10,11 @@
 </head>
 
 <body>
-    <div class="bg-white shadow-sm pt-2 pb-2">
+    <div class="bg-info shadow-sm pt-2 pb-2">
         <nav class="navbar navbar-expand-lg container">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('home.index')}}">
-                    <strong class="text-success">BLOGS</strong>
+                <a class="navbar-brand" href="#">
+                    <strong class="text-white">Dashboard</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -23,9 +23,16 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <div class="w-100">
-                        <a href="{{route('dashboard.index')}}" class="btn btn-sm btn-success float-end">Dashboard</a>
+                        <a href="{{route('dashboard.logout')}}" class="btn btn-sm btn-success float-end">Logout</a>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
+    
+    @if(!session('user')){
+    <script>
+       window.location.href = "{{route('login.index')}}";
+    </script>
+    }
+    @endif
