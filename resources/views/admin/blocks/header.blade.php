@@ -13,7 +13,7 @@
     <div class="bg-info shadow-sm pt-2 pb-2">
         <nav class="navbar navbar-expand-lg container">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{route('dashboard.index')}}">
                     <strong class="text-white">Dashboard</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
