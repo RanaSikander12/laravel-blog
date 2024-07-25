@@ -3,7 +3,7 @@ Laravel Blog Application Simple
 How to use ?
  1. import Blog database from Database folder to your localhost
  2. run xampp mysql
- 3. run the command php artisan serve
+ 3. run the command in command prompt php artisan serve
 
 Login ?
 <br>

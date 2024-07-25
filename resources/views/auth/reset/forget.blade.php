@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Reset Your Password</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -13,36 +13,28 @@
 
 
     <div class="container">
-        @if(Session::has('success'))
-        <div class="alert alert-success mt-3">{{Session::get('success')}}</div>
+        @if(Session::has('email'))
+        <div class="alert alert-danger mt-3">{{Session::get('email')}}</div>
         @endif
-        @if(Session::has('error'))
-        <div class="alert alert-danger mt-3">{{Session::get('error')}}</div>
+        @if(Session::has('status'))
+        <div class="alert alert-success mt-3">{{Session::get('status')}}</div>
         @endif
         <div class="card border-0 shadow-sm mx-auto mt-5 rounded-0" style="width :35%;">
             <div class="card-header bg-success border-0 text-center text-white rounded-0">
-                <h4 class="fw-bold">Login to Countinue</h4>
+                <h4 class="fw-bold">Reset Your Password</h4>
             </div>
-            <form action="{{route('login.check')}}" method="post">
+            <form action="{{route('password.request')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <label for="" class="mt-2 mb-2">Enter Your Email </label>
-                    <input type="text" class="form-control" name="email" value="{{old('email')}}">
+                    <input type="text" class="form-control" name="email">
                     @error('email')
-                    <p class="text-danger">{{$message}}</p>
-                    @enderror
-                    <label for="" class="mt-2 mb-2">Enter Password</label>
-                    <input type="text" class="form-control" name="password" value="{{old('password')}}">
-                    @error('password')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-success text-white form-control">Login</button>
-                    <div class="d-flex justify-content-between">
-                        <a href="{{route('password.request')}}" class="pt-2 pb-2">Forget Password ?</a>
-                        <a href="{{route('register.index')}}" class="pt-2 pb-2">Create an account</a>
-                    </div>
+                    <button class="btn btn-success text-white form-control">Send Link</button>
+                    <a href="{{route('login.index')}}" class="d-block pt-2 pb-2 float-end">back to login</a>
                 </div>
             </form>
         </div>
